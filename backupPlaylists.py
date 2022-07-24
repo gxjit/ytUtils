@@ -7,7 +7,6 @@ from unicodedata import normalize
 
 from ytmusicapi import YTMusic
 
-print = pprint
 yt = YTMusic()
 
 
@@ -32,7 +31,9 @@ def checkDirPath(pth):
 
 
 def cliArgs():
-    parser = ArgumentParser(description="Backup Youtube/Youtube Music playlists to json.")
+    parser = ArgumentParser(
+        description="Backup Youtube Music/Youtube playlists to json."
+    )
     parser.add_argument(
         "id", help="Comma separated id(s) of playlist(s).", type=csvToList
     )
@@ -103,6 +104,7 @@ def filterPlaylistData(data):
             "title": t["title"],
             "artists": ", ".join([a["name"] for a in t["artists"]]),
             "album": t["album"] and t["album"].get("name"),
+            # "album": t["album"]["name"] if t["album"] else **{},
             "length": t["duration_seconds"],
         }
         for t in data["tracks"]
@@ -115,6 +117,7 @@ def dumpPlaylist(jsonData, ext=".json"):
     Path(Path.cwd() / f"{slugify(jsonData['title'])}{ext}").write_text(
         dumps(jsonData, indent=2)
     )
+
 
 def main():
     pargs = cliArgs()
