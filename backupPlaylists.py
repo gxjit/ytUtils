@@ -32,7 +32,7 @@ def checkDirPath(pth):
 
 
 def cliArgs():
-    parser = ArgumentParser(description="Backup Youtube playlists to json.")
+    parser = ArgumentParser(description="Backup Youtube/Youtube Music playlists to json.")
     parser.add_argument(
         "id", help="Comma separated id(s) of playlist(s).", type=csvToList
     )
