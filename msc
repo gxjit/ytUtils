@@ -1,0 +1,39 @@
+# sng = (yt.get_song("gOSM2dEqwsE"))
+
+
+# https://ytmusicapi.readthedocs.io/en/latest/reference.html#
+# https://github.com/srcecde/python-youtube-api
+
+# https://www.youtube.com/oembed?url=http%3A//youtube.com/watch%3Fv%3DM3r2XDceM6A&format=json
+# https://noembed.com/embed?url=https://www.youtube.com/watch?v=dQw4w9WgXcQ
+# https://noembed.com/#supported-sites
+
+# "playabilityStatus" > "status": "OK",
+# "videoDetails": > "videoId", "title", "lengthSeconds", "author",
+# "microformat" > "microformatDataRenderer" > "title", "description", "videoDetails" > durationSeconds
+
+# 'tracks' > 'title', 'videoId' | 'album' > 'name' | 'artists' > 'name' | 'duration_seconds', 'isAvailable'
+# 'title', 'duration', 'duration_seconds', 'author', 'id', 'trackCount'
+
+# def track(id, title, artists, album, length):
+#     return dictToNTuple("track", locals())
+
+
+# def playlist(id, title, author, privacy, trackCount, length):
+#     return dictToNTuple("playlist", locals())
+
+# track(
+#     t["videoId"],
+#     t["title"],
+#     ", ".join([a["name"] for a in t["artists"]]),
+#     t["album"] and t["album"].get("name"),
+#     t["duration_seconds"],
+# )
+# playlist(
+#         d["id"],
+#         d["title"],
+#         d["author"]["name"],
+#         d["privacy"],
+#         d["trackCount"],
+#         d["duration_seconds"],
+#     )
